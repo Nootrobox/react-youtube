@@ -140,6 +140,8 @@ var YouTube = function (_React$Component) {
   }, {
     key: 'createPlayer',
     value: function createPlayer() {
+      // do not attempt to create a player server-side, it won't work
+      if (typeof document === 'undefined') return;
       // create player
       this._internalPlayer = (0, _youtubePlayer2.default)(this._containerId, _extends({}, this.props.opts));
       // attach event handlers
